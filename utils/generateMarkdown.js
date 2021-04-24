@@ -59,19 +59,55 @@ return licenseLink;
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 var renderLicenseSection = (license) => {
-  return `
+  let licenseBadgeReturn = renderLicenseBadge(license)
+  let licenseLinkReturn = renderLicenseLink(license)
+  let licenseReturn = `
   ## License
-  ${renderLicenseBadge(data.license)}
+  ${licenseBadgeReturn}
   The project is licensed under the ${license} license.
-  ${renderLicenseLink(data.license)}
+  ${licenseLinkReturn}
   `
+  return licenseReturn;
 }
 
-var tableContentsRender = (options) => {
-  let links = []
-    for(let i = 0; i < options; i++){
-      
+var tableContentsRender = (contents) => {
+  let tclinks = []
+    for(var i = 0; i < contents.length; i++){
+      switch (contents[i]) {
+        case 'Description':
+                tclinks.push(`\n * [Description](#description)`)
+                break;
+
+        case 'Installation':
+                tclinks.push(`\n * [Installation](#installation)`)
+                break;
+
+        case 'Usage':
+                tclinks.push(`\n * [Usage](#usage)`)
+                break;
+
+        case 'License':
+                tclinks.push(`\n * [License](#license)`)
+                break;
+
+        case 'Tests':
+                tclinks.push(`\n * [Tests](#tests)`)
+                break;
+
+        case 'Links':
+                tclinks.push(`\n * [Links](#links)`)
+                break;
+
+        case 'Contributors':
+                tclinks.push(`\n * [Contributors](#contributors)`)
+                break;
+
+        case 'Questions':
+                tclinks.push(`\n * [Questions](#questions)`)
+                break;
+      }
     }
+    return tclinks.join('')
 }
 
 // TODO: Create a function to generate markdown for README
@@ -91,7 +127,7 @@ var generateMarkdown = (data) => {
   ## Usage
   ${data.usage}
 
-  ${renderLicenseSection}
+  ${renderLicenseSection(data.license)}
 
   ## Tests
   Please run the following command to test:
