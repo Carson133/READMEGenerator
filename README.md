@@ -31,8 +31,8 @@
   NA
 
   ## Links
-  ![Link to REPO](https://github.com/Carson133/READMEGenerator)
-  ![Video Walkthrough](https://youtu.be/nHOKUJ4HqqM)
+  * [Link to REPO](https://github.com/Carson133/READMEGenerator)
+  * [Video Walkthrough](https://youtu.be/nHOKUJ4HqqM)
 
   ## Questions?
   Please email carson.carraher@gmail.com with any questions.
